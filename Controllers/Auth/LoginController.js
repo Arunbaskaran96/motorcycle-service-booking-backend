@@ -57,8 +57,8 @@ router.post("/forgot", async (req, res) => {
       const token = jwt.sign({ email: user.email, id: user._id }, forgotSec, {
         expiresIn: "10m",
       });
-      const link = `http://localhost:8000/reset/${user._id}/${token}`;
-      console.log(link)
+      const link = `https://motorcycle-service-app.onrender.com/reset/${user._id}/${token}`;
+      // console.log(link)
       if (link) {
         const sender = nodemailer.createTransport({
           service: "gmail",
